@@ -1,0 +1,12 @@
+<% if book.favorited_by?(current_user) %>
+  <% like = Favorite.find_by(user_id: current_user.id, book_id: book.id) %>
+  <%= link_to book_favorites_path(book), method: :delete do %>
+   <i class="fas fa-heart favorited-icon "></i> 
+   <span class= "favorited-icon"><%= book.favorites.count %></span>
+  <% end %>
+ <% else %>
+  <%= link_to book_favorites_path(book), method: :post do %>
+   <i class="fas fa-heart"></i>
+   <span><%= book.favorites.count %></span>
+  <% end %>
+<% end %>
