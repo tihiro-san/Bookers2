@@ -16,6 +16,7 @@ class UsersController < ApplicationController
   
   def edit
     @user = User.find(params[:id])
+    
   end
   
   def update
@@ -24,6 +25,16 @@ class UsersController < ApplicationController
     else
       render "edit"
     end
+  end
+  
+  def followers
+    @user = User.find(params[:id])
+    @users = User.all
+  end
+
+  def followings
+    @user = User.find(params[:id])
+    
   end
   
   private
