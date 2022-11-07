@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   
   
   
+  
   devise_for :users
   get 'homes/top'
   get "home/about" => "homes#about"
@@ -14,6 +15,8 @@ Rails.application.routes.draw do
   
   post 'follow/:id' => 'relationships#follow',as:'follow'
   post 'unfollow/:id' => 'relationships#unfollow',as:'anfollow'
+  
+  get "search" => "searches#search"
   
   resources :users do
     resource :relationships, only: [:create, :destroy]
